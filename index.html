@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8"> 
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +32,6 @@
   <meta name="description" content="Home page"></head>
 <body>
 
-  <!-- header -->
   <header class="header">
       <div class="container">
           <div class="header__wrapper">
@@ -85,13 +84,18 @@
                       </a>
                   </div>
               </div>
+              <button class="header__burger">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+              </button>
           </div>
       </div>
   </header><main class="page--home">
       <section class="hero">
           <div class="container">
               <div class="hero__content">
-                  <div class="hero__preview">
+                  <div class="hero__preview swiper">
                       <div class="hero__preview-wrapper swiper-wrapper">
                           <div class="hero__preview-slide swiper-slide">
                               <img src="assets/images/home/hero1.jpg" alt="Slide 1">
@@ -216,7 +220,7 @@
                       <div class="gallery__cards-head">
                           <div class="gallery__cards-description">
                               <h2 class="h2 gallery__cards-title">Aktuelles</h2>
-                              <a href="#!">Mehr erfahren</a>
+                              <a class="gallery__cards-link" href="#!">Mehr erfahren</a>
                           </div>
                           <div class="gallery__cards-navigation">
                               <div class="gallery__cards-btn btn--prev">
@@ -344,12 +348,11 @@
                               </div>
                           </div>
                       </div>
-      
+                      <a class="gallery__cards-link mobile--visible" href="#!">Mehr erfahren</a>
                   </div>
               </div>
           </div>
       </section></main>
-  <!-- footer -->
   <footer class="footer">
       <div class="container">
           <div class="footer__content">
