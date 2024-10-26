@@ -14,10 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    let menuBtn = document.querySelector('.header__burger');
+    const menuBtn = document.querySelector('.header__burger');
+    const mobileMenu = document.querySelector('.mobile-menu');
     
     menuBtn.addEventListener('click', function () {
         menuBtn.classList.toggle('opened');
+        mobileMenu.classList.toggle('show');
+        document.body.classList.toggle('no-scroll');
+    });
+    
+    const menuItems = document.querySelectorAll('li:has(.dropdown-item)');
+    const dropDownEl = document.querySelectorAll('.dropdown-item');
+    menuItems.forEach((item) => {
+        item.addEventListener('click', function (e) {
+            item.classList.toggle('show');
+        });
     });
     const mainPageHeroSlider = new Swiper('.hero__preview', {
         effect: 'fade',
