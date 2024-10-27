@@ -1,19 +1,36 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', () => {
-    const descriptions = document.querySelectorAll(
-        '.gallery__cards-items .description'
+    const descriptionCards = document.querySelectorAll(
+        '.cards-content .description-js'
     );
 
-    if (descriptions.length > 0) {
-        descriptions.forEach((description) => {
+    const titlesCards = document.querySelectorAll(
+        '.cards-content .title-js'
+    );
+
+    if (descriptionCards.length > 0) {
+        descriptionCards.forEach((description) => {
             const originalText = description.textContent;
 
             if (originalText.length > 100) {
-                const trimmedText = originalText.slice(0, 250) + '...';
+                const trimmedText = originalText.slice(0, 200) + '...';
                 description.textContent = trimmedText;
             }
         });
     }
+
+
+    if (titlesCards.length > 0) {
+        titlesCards.forEach((description) => {
+            const originalText = description.textContent;
+
+            if (originalText.length > 150) {
+                const trimmedText = originalText.slice(0, 150) + '...';
+                description.textContent = trimmedText;
+            }
+        });
+    }
+
     const menuBtn = document.querySelector('.header__burger');
     const mobileMenu = document.querySelector('.mobile-menu');
     
