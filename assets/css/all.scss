@@ -260,6 +260,109 @@ select {
         --section-padding: 54px;
     }
 }
+
+@mixin bg-contain {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+@mixin bg-cover {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@mixin cut-text($overflow: ellipsis) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow;
+}
+@mixin font-woff2($font-family, $url, $weight, $style) {
+  @font-face {
+    src: url('#{$url}.woff2') format("woff2");
+    font-family: "#{$font-family}";
+    font-weight: #{$weight};
+    font-style: $style;
+    font-display: swap;
+  }
+}
+@mixin hover() {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+
+  }
+}
+@mixin img-cover {
+  width: 100%;
+  object-fit: cover;
+}
+
+@forward "font-face";
+@forward "cut-text";
+@forward "bg-cover";
+@forward "bg-contain";
+@forward "mask-contain";
+@forward "img-cover";
+@forward "size";
+@forward "hover";
+@forward "media";
+
+@mixin mask-contain {
+  mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+}
+$xl: 1200;
+$lg: 992;
+$md: 768;
+$sm: 600;
+$xs: 480;
+
+@mixin rmin($width) {
+  @media (min-width: #{$width}px) {
+    @content;
+  }
+}
+
+@mixin rhmin($width) {
+  @media (min-height: #{$width}px) {
+    @content;
+  }
+}
+
+@mixin rhmax($width) {
+  @media (max-height: #{$width}px) {
+    @content;
+  }
+}
+
+@mixin rmax($width) {
+  @media (max-width: #{$width}px) {
+    @content;
+  }
+}
+
+
+$maxValue: 1440;
+$minValue: 360;
+
+@function sizeMax($max, $min, $wmax: $maxValue, $wmin: $minValue) {
+  $size: calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - #{$wmin}px) / (#{$wmax} - #{$wmin})));
+  @return $size;
+}
+
+@mixin size($propName, $max, $min, $stopSize: $maxValue) {
+  @if $max == $min {
+    #{$propName}: #{$max}px;
+  } @else {
+    #{$propName}: sizeMax($max, $min);
+
+    @media (min-width: #{$stopSize}px) {
+      #{$propName}: #{$max}px;
+    }
+  }
+}
 @use 'home';
 @use 'services'
 .footer {
@@ -1044,108 +1147,117 @@ select {
 @forward 'footer';
 @forward 'header';
 
-@mixin bg-contain {
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-@mixin bg-cover {
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-@mixin cut-text($overflow: ellipsis) {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: $overflow;
-}
-@mixin font-woff2($font-family, $url, $weight, $style) {
-  @font-face {
-    src: url('#{$url}.woff2') format("woff2");
-    font-family: "#{$font-family}";
-    font-weight: #{$weight};
-    font-style: $style;
-    font-display: swap;
-  }
-}
-@mixin hover() {
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      @content;
+.page--services {
+    .hero {
+        margin-bottom: 16px;
+
+        &__content {
+            overflow: hidden;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background: #272A2F80;
+            }
+        }
+
+        &__title {
+            max-width: 50.5%;
+            width: 100%;
+            display: inline-flex;
+            flex-direction: column;
+            text-transform: uppercase;
+            z-index: 2;
+            font-size: 75px;
+            font-weight: 800;
+            line-height: 67.5px;
+            letter-spacing: -0.06em;
+            color: #fff;
+
+            span {
+                &:last-child {
+                    margin-left: auto;
+                }
+            }
+        }
     }
 
-  }
-}
-@mixin img-cover {
-  width: 100%;
-  object-fit: cover;
-}
+    .service {
+        &__items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
 
-@forward "font-face";
-@forward "cut-text";
-@forward "bg-cover";
-@forward "bg-contain";
-@forward "mask-contain";
-@forward "img-cover";
-@forward "size";
-@forward "hover";
-@forward "media";
+        &__card {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 32px;
+            border-radius: 6px;
+            background: #D9DFE7;
 
-@mixin mask-contain {
-  mask-position: center;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-}
-$xl: 1200;
-$lg: 992;
-$md: 768;
-$sm: 600;
-$xs: 480;
+            .col {
+                width: 100%;
+                &:first-child {
+                    max-width: 621px;
+                }
+                &:last-child {
+                    max-width: 400px;
+                }
+            }
 
-@mixin rmin($width) {
-  @media (min-width: #{$width}px) {
-    @content;
-  }
-}
+            &-thumb {
+                margin-bottom: 27px;
+                max-width: 100%;
+                height: 327px;
 
-@mixin rhmin($width) {
-  @media (min-height: #{$width}px) {
-    @content;
-  }
-}
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 6px;
+                }
+            }
 
-@mixin rhmax($width) {
-  @media (max-height: #{$width}px) {
-    @content;
-  }
-}
+            &-title {
+                font-size: 40px;
+                font-weight: 400;
+                line-height: 40px;
+                max-width: 500px;
+                color: #272A2F;
+            }
 
-@mixin rmax($width) {
-  @media (max-width: #{$width}px) {
-    @content;
-  }
-}
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
 
-
-$maxValue: 1440;
-$minValue: 360;
-
-@function sizeMax($max, $min, $wmax: $maxValue, $wmin: $minValue) {
-  $size: calc(#{$min}px + (#{$max} - #{$min}) * ((100vw - #{$wmin}px) / (#{$wmax} - #{$wmin})));
-  @return $size;
-}
-
-@mixin size($propName, $max, $min, $stopSize: $maxValue) {
-  @if $max == $min {
-    #{$propName}: #{$max}px;
-  } @else {
-    #{$propName}: sizeMax($max, $min);
-
-    @media (min-width: #{$stopSize}px) {
-      #{$propName}: #{$max}px;
+                li {
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 16.8px;
+                    padding-block: 8px;
+                    color: #272A2F;
+                    border-bottom: 1px solid #272A2F80;
+                }
+            }
+        }
     }
-  }
 }
+@forward 'hero';
+@forward 'cards'
 .page--home {
     .gallery {
         padding-top: var(--section-padding);
@@ -1670,115 +1782,3 @@ $minValue: 360;
         }
     }
 }
-
-.page--services {
-    .hero {
-        margin-bottom: 16px;
-
-        &__content {
-            overflow: hidden;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 400px;
-            position: relative;
-
-            &::after {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                background: #272A2F80;
-            }
-        }
-
-        &__title {
-            max-width: 50.5%;
-            width: 100%;
-            display: inline-flex;
-            flex-direction: column;
-            text-transform: uppercase;
-            z-index: 2;
-            font-size: 75px;
-            font-weight: 800;
-            line-height: 67.5px;
-            letter-spacing: -0.06em;
-            color: #fff;
-
-            span {
-                &:last-child {
-                    margin-left: auto;
-                }
-            }
-        }
-    }
-
-    .service {
-        &__items {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        &__card {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 32px;
-            border-radius: 6px;
-            background: #D9DFE7;
-
-            .col {
-                width: 100%;
-                &:first-child {
-                    max-width: 621px;
-                }
-                &:last-child {
-                    max-width: 400px;
-                }
-            }
-
-            &-thumb {
-                margin-bottom: 27px;
-                max-width: 100%;
-                height: 327px;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    border-radius: 6px;
-                }
-            }
-
-            &-title {
-                font-size: 40px;
-                font-weight: 400;
-                line-height: 40px;
-                max-width: 500px;
-                color: #272A2F;
-            }
-
-            ul {
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-
-                li {
-                    font-size: 12px;
-                    font-weight: 400;
-                    line-height: 16.8px;
-                    padding-block: 8px;
-                    color: #272A2F;
-                    border-bottom: 1px solid #272A2F80;
-                }
-            }
-        }
-    }
-}
-@forward 'hero';
-@forward 'cards'
