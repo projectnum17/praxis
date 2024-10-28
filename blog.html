@@ -101,12 +101,12 @@
                           Kontakt
                       </a>
                   </div>
+                  <button class="header__burger">
+                      <span class="bar"></span>
+                      <span class="bar"></span>
+                      <span class="bar"></span>
+                  </button>
               </div>
-              <button class="header__burger">
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-                  <span class="bar"></span>
-              </button>
           </div>
       </div>
   </header>
@@ -259,10 +259,30 @@
               </div>
               <div class="blog__panel">
                   <div class="blog__more">
-                      <button>Load more</button>
+                      <button class="blog__more-btn">Load more</button>
                   </div>
                   <div class="blog__pagination">
-                      blog__pagination
+                      <a class="prev page-numbers" href="https://staging.praxis.s-media.dev/blog/page/2/">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                  d="M16.6464 17.3536L17 17.7071L17.7071 17L17.3536 16.6464L16.6464 17.3536ZM7.35355 6.64645C7.15829 6.45118 6.84171 6.45118 6.64645 6.64645C6.45118 6.84171 6.45118 7.15829 6.64645 7.35355L7.35355 6.64645ZM17.3536 16.6464L7.35355 6.64645L6.64645 7.35355L16.6464 17.3536L17.3536 16.6464Z"
+                                  fill="#333D4C" />
+                              <path d="M7 17V7H17" stroke="#333D4C" stroke-linecap="square" />
+                          </svg>
+                      </a>
+                      <span aria-current="page" class="page-numbers current">1</span>
+                      <a class="page-numbers" href="https://staging.praxis.s-media.dev/blog/page/2/">2</a>
+                      <a class="page-numbers" href="https://staging.praxis.s-media.dev/blog/page/3/">3</a>
+                      <span class="page-numbers dots">&hellip;</span>
+                      <a class="page-numbers" href="https://staging.praxis.s-media.dev/blog/page/6/">6</a>
+                      <a class="next page-numbers" href="https://staging.praxis.s-media.dev/blog/page/2/">
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                  d="M6.64645 16.6464L6.29289 17L7 17.7071L7.35355 17.3536L6.64645 16.6464ZM17.3536 7.35355C17.5488 7.15829 17.5488 6.84171 17.3536 6.64645C17.1583 6.45118 16.8417 6.45118 16.6464 6.64645L17.3536 7.35355ZM7.35355 17.3536L17.3536 7.35355L16.6464 6.64645L6.64645 16.6464L7.35355 17.3536Z"
+                                  fill="#333D4C" />
+                              <path d="M7 7H17V17" stroke="#333D4C" stroke-linecap="square" />
+                          </svg>
+                      </a>
                   </div>
               </div>
           </div>
