@@ -4,9 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '.cards-content .description-js'
     );
 
-    const titlesCards = document.querySelectorAll(
-        '.cards-content .title-js'
-    );
+    const titlesCards = document.querySelectorAll('.cards-content .title-js');
 
     if (descriptionCards.length > 0) {
         descriptionCards.forEach((description) => {
@@ -18,7 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
 
     if (titlesCards.length > 0) {
         titlesCards.forEach((description) => {
@@ -101,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         spaceBetween: 20,
         grabCursor: true,
         loop: true,
-        speed: 1500,
-        slidesPerView: 3.2,
+        speed: 800,
+        slidesPerView: 3.1,
         navigation: {
             nextEl: '.gallery__cards .btn--next',
             prevEl: '.gallery__cards .btn--prev',
@@ -110,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         breakpoints: {
             992: {
                 spaceBetween: 20,
-                slidesPerView: 3.2,
+                slidesPerView: 3.1,
             },
             768: {
                 slidesPerView: 2.7,
@@ -123,4 +120,71 @@ document.addEventListener('DOMContentLoaded', () => {
             },
         },
     });
+    
+    const blogCardsSlider = new Swiper('.gallery__cards-items', {
+        spaceBetween: 20,
+        grabCursor: true,
+        speed: 800,
+        slidesPerView: 3,
+        navigation: {
+            nextEl: '.post__news .post--next',
+            prevEl: '.post__news .post--prev',
+        },
+        breakpoints: {
+            992: {
+                spaceBetween: 20,
+                slidesPerView: 3,
+            },
+            768: {
+                slidesPerView: 2.7,
+            },
+            767: {
+                slidesPerView: 1.2,
+            },
+            320: {
+                slidesPerView: 1.2,
+            },
+        },
+    });
+    
+    jQuery(document).ready(function ($) {
+        $('.team__member').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.team__all',
+            infinite: false,
+        });
+        $('.slide--prev').on('click', function () {
+            $('.team__member').slick('slickPrev');
+        });
+    
+        $('.slide--next').on('click', function () {
+            $('.team__member').slick('slickNext');
+        });
+        $('.team__all').slick({
+            slidesToShow: 9,
+            slidesToScroll: 1,
+            asNavFor: '.team__member',
+            focusOnSelect: true,
+            arrows: false,
+            infinite: false,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 6,
+                    },
+                },
+                {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 3,
+                    },
+                },
+            ],
+        });
+    });
+    Fancybox.bind('[data-fancybox]', {});
 });

@@ -5,20 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+  >
   <script
       src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
       integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8="
       crossorigin="anonymous">
   </script>
+  
+  <link
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.css"
+      rel="stylesheet"
+  >
   <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
   />
   <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+  />
+  <link
       rel="stylesheet"
       href="./assets/css/style.min.css"
   >
+  <script defer
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js">
+  </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+  
   <script
       defer
       src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
@@ -148,38 +166,42 @@
           <div class="container">
               <div class="worker__info">
                   <div class="worker__preview">
+                      <h2 class="worker__about-title mobile--visible">Curriculum Vitae</h2>
                       <div class="worker__thumb">
                           <img src="assets/images/worker.jpg" alt="Frau Sandra Beres">
                       </div>
                       <div class="worker__panel">
                           <div class="item">
                               <a href="#!">
-                                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                       xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M15.7139 10L5.71387 10" stroke="#333D4C" stroke-linecap="square" />
-                                      <path d="M10.0003 15.8333L4.16699 9.99996L10.0003 4.16663" stroke="#333D4C"
-                                          stroke-linecap="square" />
+                                      <path
+                                          d="M16.6464 17.3536L17 17.7071L17.7071 17L17.3536 16.6464L16.6464 17.3536ZM7.35355 6.64645C7.15829 6.45118 6.84171 6.45118 6.64645 6.64645C6.45118 6.84171 6.45118 7.15829 6.64645 7.35355L7.35355 6.64645ZM17.3536 16.6464L7.35355 6.64645L6.64645 7.35355L16.6464 17.3536L17.3536 16.6464Z"
+                                          fill="#333D4C" />
+                                      <path d="M7 17V7H17" stroke="#333D4C" stroke-linecap="square" />
                                   </svg>
                               </a>
-                              <h2 class="worker__name">Frau Sandra Beres</h2>
                           </div>
                           <div class="item">
-                              <p class="worker__title">
-                                  Fachärztin für Allgemeine innere Medizin
-                                  Fachärztin für Gastroenterologie
-                              </p>
+                              <h2 class="worker__name">Frau Sandra Beres</h2>
+                              <div class="inner">
+                                  <p class="worker__title">
+                                      Fachärztin für Allgemeine innere Medizin
+                                      Fachärztin für Gastroenterologie
+                                  </p>
       
-                              <p class="worker__descr">Zusatzbezeichnungen:</p>
-                              <ul class="worker__list">
-                                  <li>Diabetologie (D)</li>
-                                  <li>Notfallmedizin (D)</li>
-                                  <li>Proktologie (D) Palliativmedizin (D)</li>
-                              </ul>
+                                  <p class="worker__descr">Zusatzbezeichnungen:</p>
+                                  <ul class="worker__list">
+                                      <li>Diabetologie (D)</li>
+                                      <li>Notfallmedizin (D)</li>
+                                      <li>Proktologie (D) Palliativmedizin (D)</li>
+                                  </ul>
+                              </div>
                           </div>
                       </div>
                   </div>
                   <div class="worker__about">
-                      <h1 class="worker__about-title">Curriculum Vitae</h1>
+                      <h2 class="worker__about-title">Curriculum Vitae</h2>
                       <div class="worker__about-card">
                           <div class="info-box">
                               <h3 class="info-box__title">
